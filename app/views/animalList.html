@@ -1,0 +1,12 @@
+<div class="col-lg-4 col-xs-12">
+<table class = "table">
+
+ <tr ng-repeat = "animal in animalArr track by $index" >
+  <td> {{animal.name}} </td>
+  <td> {{animal.type}} </td>
+  <td> <button ng-click="kill(animal)" class = "btn"> kill </button>  </td>
+  <td> <button ng-click="feed(animal)" class = "btn"> feed </button>  </td>
+  <td> {{(animal.eatTime - animal.hunger)/1000}} </td>
+  </tr>
+ </table>
+ </div>

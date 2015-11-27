@@ -31,87 +31,42 @@
 
 
 
-  <!-- build:js({.tmp,app}) scripts/scripts.js -->
-  <!-- <script src="scripts/app.js"></script> -->
-<script src="scripts/controllers/main.js"></script>
-  <!-- endbuild -->
+
 
 <!-- Zoo core -->
 <script src = "scripts/core/animal/Animal.js"></script>
 <script src = "scripts/core/animal/CarnivoreAnimal.js"></script>
 <script src = "scripts/core/animal/HerbivoreAnimal.js"></script>
+
 <script src = "scripts/core/animal/carnivoreAnimal/Hedgehog.js"></script>
+<script src = "scripts/core/animal/carnivoreAnimal/Lion.js"></script>
+<script src = "scripts/core/animal/carnivoreAnimal/Tiger.js"></script>
+<script src = "scripts/core/animal/carnivoreAnimal/Gorinich.js"></script>
+
 <script src = "scripts/core/animal/herbivoreAnimal/Elephant.js"></script>
-<script src = "scripts/core/service/ZooService.js"></script>
+<script src = "scripts/core/animal/herbivoreAnimal/Rabbit.js"></script>
+<script src = "scripts/core/animal/herbivoreAnimal/Zebra.js"></script>
+<script src = "scripts/core/service/Zoo.js"></script>
+<script src = "scripts/core/service/Filler.js"></script>
+
+<script src = "scripts/controllers/main.js"></script>
+<script src = "scripts/directives/animalList.js"></script>
+<script src = "scripts/directives/form.js"></script>
+<script src = "scripts/directives/chat.js"></script>
+
+
 
 <body >
 
   <div ng-app="Zoo" >
 
     <div ng-controller="AnimalsList">
-
-
-<div class ="col-lg-4 col-xs-12" >
-  <table class = "table">
-
-    <tr ng-repeat = "animal in animals.getAnimals()" track by $index>
-      <td> {{animal.name}}</td>
-      <td> {{animal.type}}</td>
-      <td> <button ng-click="kill(animal)"> kill </button>  </td>
-      <td> <button ng-click="feed(animal)"> feed </button>  </td>
-    </tr>
-
-  </table>
-
-</div>
-
-  <div class ="col-lg-4 col-xs-12" >
-
-
-
-    <form role="form">
-
-     <div class="form-group">
-       <label for="name"> Animal name:</label>
-       <input type="text" name="animalName" ng-model="animal.name" class="form-control" id="email">
-     </div>
-
-     <div class="form-group">
-       <label for="type">Animal type :</label>
-       <select ng-model="animal.type" class = "form-control" id="type">
-
-      <option ng-repeat = "type in animals.getAllTypes()"  value = "{{type}}" id="type">{{type}}</option>
-    </select>
-     </div>
-
-     <div class="form-group">
-       <label for="eatTime"> Animal eatTime :</label>
-       <input type="text" name="animalEatTime" ng-model="animal.eatTime" class="form-control" id="eatTime">
-     </div>
-
-     <div class="form-group">
-       <label for="activity">  Animal activity:</label>
-       <input type="text" name="animalActivity" ng-model="animal.activity" class="form-control" id="activity">
-     </div>
-     <div class="form-group">
-       <label for="size">  Animal size:</label>
-       <input type="text" name="animalSize" ng-model="animal.size" class="form-control" id="size">
-     </div>
-
-
-     <button ng-click="addAnimal(animal)" class="btn btn-default">Add Animal</button>
-   </form>
+        <animal-list></animal-list>
+        <add-form></add-form>
+        <animal-chat></animal-chat>
     </div>
 
-    <div class="col-lg-4 col-xs-12">
-    <ul>
-      <li ng-repeat = "animal in animals.getAnimals()" track by $index>{{animal.getVoice()}} </li>
-    </ul>
-    </div>
+ </div>
 
-</div>
-
-</div>
-</div>
 </body>
 </html>

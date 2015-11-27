@@ -1,4 +1,4 @@
-function Hedgehog(name, eatTime, activity, size){
+function Hedgehog(){
   CarnivoreAnimal.apply(this, arguments);
   this.type = "Hedgehog";
   this.voice = "Hedgehog voice";
