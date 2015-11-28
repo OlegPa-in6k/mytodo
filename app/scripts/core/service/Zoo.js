@@ -67,10 +67,18 @@ function Zoo() {
       animals[i].tickEatTime();
 
       if(animals[i].getEatTime() == animals[i].getHungerTime() ) {
+          if(animals[i] instanceof HerbivoreAnimal) {
+             self.chat.unshift(animals[i].getName() + " herbivoreAnimal die!");
+             self.removeAnimal(animals[i]);
+             }
+           else {
+            self.chat.unshift(animals[i].getName() + " CarnivoreAnimal die!");
+             self.removeAnimal(animals[i]);
+           }  
 
-            self.chat.unshift(animals[i].getName() + " just die!");
-            self.removeAnimal(animals[i]);
-            break;
+
+
+           
       }
 
       if (animals[i].getVoiceTime() == animals[i].getActivity()) {
