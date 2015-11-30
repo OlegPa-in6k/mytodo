@@ -21,5 +21,4 @@ appZoo.controller('AnimalsList', ['$scope', '$interval', function($scope, $inter
      $scope.animals.tick();
       }, 1000);
 
-
 }]);

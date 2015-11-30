@@ -5,7 +5,7 @@ appZoo.directive('animalChat',  function($interval) {
     restruct : 'E',
     templateUrl:"views/chat.html",
     link: function(scope){
-        scope.chats = scope.animals.getChat();
+      scope.chats = scope.animals.getChat();
     }
 
     };

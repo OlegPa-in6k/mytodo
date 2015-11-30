@@ -39,14 +39,9 @@ Animal.prototype.isAlive = function() {
   return this.alive;
 }
 
-
 Animal.prototype.setActivity = function() {
   this.newActivity = 0;
-
 }
-
-
-
 
 Animal.prototype.tickEatTime = function() {
   this.hunger += 1000;
@@ -70,4 +65,16 @@ Animal.prototype.wasVoice = function() {
 
 Animal.prototype.tickVoice = function() {
   this.newActivity += 1000;
+}
+
+Animal.prototype.isTimeToEat = function() {
+  return this.getEatTime() == this.getHungerTime();
+}
+
+Animal.prototype.isTimeToVoice = function() {
+  return this.getVoiceTime() == this.getActivity();
+}
+
+Animal.prototype.TimeToEatLeft = function() {
+  return (this.getEatTime() - this.getHungerTime())/1000;
 }

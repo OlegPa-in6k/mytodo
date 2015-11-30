@@ -1,12 +1,12 @@
 <div class="col-lg-4 col-xs-12">
-<table class = "table">
+  <table class = "table">
 
  <tr ng-repeat = "animal in animalArr track by $index" >
-  <td> {{animal.name}} </td>
-  <td> {{animal.type}} </td>
-  <td> <button ng-click="kill(animal)" class = "btn btn-danger"> kill </button>  </td>
-  <td> <button ng-click="feed(animal)" class = "btn btn-success"> feed </button>  </td>
-  <td> {{(animal.eatTime - animal.hunger)/1000}} </td>
+    <td> {{ animal.getName() }} </td>
+    <td> {{ animal.getType() }} </td>
+    <td> <button ng-click="kill(animal)" class = "btn btn-danger"> kill </button>  </td>
+    <td> <button ng-click="feed(animal)" class = "btn btn-success"> feed </button>  </td>
+    <td> {{ animal.TimeToEatLeft() }} </td>
   </tr>
  </table>
- </div>
+</div>

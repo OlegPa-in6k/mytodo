@@ -5,7 +5,7 @@ appZoo.directive('animalList', function() {
     restruct : 'E',
     templateUrl:"views/animalList.html",
     link: function(scope){
-      scope.animalArr = scope.animals.getAnimals();
+      scope.animalArr = scope.animalArr.getAnimals();
     }
     };
 

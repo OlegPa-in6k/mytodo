@@ -10,9 +10,11 @@ function Zoo() {
   this.getChat = function getChat(){
     return self.chat;
   }
+
   this.getAllTypes = function getAllTypes() {
     return types;
   }
+
   this.getAnimals = function getAnimals() {
     return animals;
   }
@@ -66,22 +68,17 @@ function Zoo() {
       animals[i].tickVoice();
       animals[i].tickEatTime();
 
-      if(animals[i].getEatTime() == animals[i].getHungerTime() ) {
+      if(animals[i].isTimeToEat() ) {
           if(animals[i] instanceof HerbivoreAnimal) {
              self.chat.unshift(animals[i].getName() + " herbivoreAnimal die!");
              self.removeAnimal(animals[i]);
              }
            else {
-            self.chat.unshift(animals[i].getName() + " CarnivoreAnimal die!");
+            self.chat.unshift(animals[i].getName() + " carnivoreAnimal die!");
              self.removeAnimal(animals[i]);
-           }  
-
-
-
-           
+           }
       }
-
-      if (animals[i].getVoiceTime() == animals[i].getActivity()) {
+      if (animals[i].isTimeToVoice()) {
         self.chat.unshift(animals[i].getName() + " : " + animals[i].getVoice());
         animals[i].wasVoice();
       }
@@ -90,19 +87,18 @@ function Zoo() {
   }
 
   this.getHerbivoreAnimals = function getHerbivoreAnimals() {
-    for (var j = 0; j < animals.length; j++) {
-      if(animals[j] instanceof HerbivoreAnimal ) {
-        herbivoreAnimals.push(animals[j]);
+    for (var i = 0; i < animals.length; i++) {
+      if(animals[i] instanceof HerbivoreAnimal ) {
+        herbivoreAnimals.push(animals[i]);
       }
     }
     return herbivoreAnimals;
   }
 
   this.getCarnivoreAnimals = function getCarnivoreAnimals() {
-
-    for (var k = 0; k < animals.length; k++) {
-      if(animals[k] instanceof CarnivoreAnimal ) {
-        carnivoreAnimals.push(animals[k]);
+    for (var i = 0; i < animals.length; i++) {
+      if(animals[i] instanceof CarnivoreAnimal ) {
+        carnivoreAnimals.push(animals[i]);
       }
     }
     return carnivoreAnimals;
