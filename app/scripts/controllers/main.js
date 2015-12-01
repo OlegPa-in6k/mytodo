@@ -3,22 +3,23 @@
 var appZoo = angular.module('Zoo', []);
 appZoo.controller('AnimalsList', ['$scope', '$interval', function($scope, $interval) {
 
-     $scope.animals = new Zoo();
+     $scope.zoo = new Zoo();
 
      $scope.kill = function(animal) {
-       $scope.animals.removeAnimal(animal);
+       $scope.zoo.removeAnimal(animal);
      }
 
      $scope.addAnimal = function(animal){
-       $scope.animals.addAnimal(angular.copy(animal));
+       $scope.zoo.addAnimal(angular.copy(animal));
        console.log(angular.copy(animal));
      }
+
      $scope.feed = function(animal) {
-       $scope.animals.feedAnimal(animal);
+       $scope.zoo.feedAnimal(animal);
      }
 
      $interval(function () {
-     $scope.animals.tick();
+     $scope.zoo.tick();
       }, 1000);
 
 }]);
